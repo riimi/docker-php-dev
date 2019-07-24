@@ -1,6 +1,6 @@
 <?php
 
-namespace DockerTutorial\Base;
+namespace DockerTutorial;
 
 class DB
 {
