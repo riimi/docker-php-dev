@@ -14,9 +14,9 @@ class DB
 
 	public function connect() {
 		try {
-			$pdo = new \PDO($this->dsn);
-			$pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
-			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+			$this->pdo = new \PDO($this->dsn);
+            $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+            $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 		} catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
