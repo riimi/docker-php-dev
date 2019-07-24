@@ -18,5 +18,5 @@ redis:
   db: 0
 
 scribed:
-  host: scribed
+  host: scribe
   port: 1323

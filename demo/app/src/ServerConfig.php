@@ -16,7 +16,7 @@ class ServerConfig
         return $this->obj['db'];
     }
 
-    public function getLogDBonfig()
+    public function getLogDBConfig()
     {
         return $this->obj['logdb'];
     }

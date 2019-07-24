@@ -9,7 +9,7 @@ class Pdo
 
 	public function __construct($cfg)
 	{
-		$this->dsn = "mysql:host=${$cfg['host']};port=${$cfg['port']};dbname=${$cfg['db']};charset=utf8";
+		$this->dsn = "mysql:host={$cfg['host']};port={$cfg['port']};dbname={$cfg['db']};charset=utf8";
         try {
             $this->pdo = new \PDO($this->dsn, $cfg['user'], $cfg['pass']);
             $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);

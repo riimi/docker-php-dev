@@ -39,7 +39,7 @@ class Logger
 
     public function add($category, $log)
     {
-        $this->queue[] = new \LogEntry(array('category'=>$category, 'message'=>$log));
+        $this->queue[] = new \LogEntry(array('category'=>$category, 'message'=>json_encode($log)));
     }
 
     public function flush()
