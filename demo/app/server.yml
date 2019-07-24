@@ -2,11 +2,15 @@ db:
   host: db
   port: 3306
   db: test
+  user: root
+  pass: password
 
 logdb:
   host: logdb
   port: 10315
   db: test
+  user: root
+  pass: password
 
 redis:
   host: redis
@@ -15,4 +19,4 @@ redis:
 
 scribed:
   host: scribed
-  port: 1345
+  port: 1323

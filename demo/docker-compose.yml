@@ -15,5 +15,36 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - ./app:/var/www/html
+    links:
+      - db
+      - logdb
+      - scribe
+  db:
+    image: mysql:5.6
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+  logdb:
+    image: mysql:5.6
+        environment:
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+    volumes:
+      - ./mysql/init-log.sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+  scribe:
+    image: n0n0x/docker-scribe
+    volumes:
+      - ./scribe/scribe.conf:/etc/scribe.conf
+      - ./scribe/log:/log
+    ports:
+      - 1463:1463
 
 
