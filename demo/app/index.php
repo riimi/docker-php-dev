@@ -13,6 +13,8 @@ $logdb = new Pdo($cfg->getLogDBConfig());
 $scribe_config = $cfg->getScribedConfig();
 $logger = new Logger($scribe_config['host'], $scribe_config['port']);
 
-$logger->add('hello_log', array("hostname"=>gethostname()));
+$hostname = gethostname();
+$logger->add('hello_log', array("hostname"=>$hostname));
 $logger->flush();
 
+echo 'hostname: ' . $hostname;

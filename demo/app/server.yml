@@ -7,7 +7,7 @@ db:
 
 logdb:
   host: logdb
-  port: 10315
+  port: 3306
   db: test
   user: root
   pass: password
