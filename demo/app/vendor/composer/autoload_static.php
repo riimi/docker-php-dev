@@ -16,7 +16,7 @@ class ComposerStaticInit8875d6ce03e9d0f228df7c66ce02c0eb
     public static $prefixDirsPsr4 = array (
         'DockerTutorial\\' => 
         array (
-            0 => __DIR__ . '/../..',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
