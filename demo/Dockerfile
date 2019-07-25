@@ -2,6 +2,7 @@ FROM php:7.2-fpm-alpine
 
 RUN apk --update --no-cache add autoconf g++ make yaml-dev
 
+# php 개발환경에 필요한 라이브러리들 설치
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql

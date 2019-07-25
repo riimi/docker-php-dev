@@ -31,4 +31,9 @@ class ServerConfig
         return $this->obj['scribed'];
     }
 
+    public function getMemcachedConfig()
+    {
+        return $this->obj['memcached'];
+    }
+
 }
