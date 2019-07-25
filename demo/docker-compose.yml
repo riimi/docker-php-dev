@@ -27,6 +27,8 @@ services:
       - db
       - logdb
       - scribe
+      - memcached
+      - redis
     networks:
       - demo
 
@@ -60,7 +62,7 @@ services:
     networks:
       - demo
 
-  memcache:
+  memcached:
     image: memcached
     networks:
       - demo

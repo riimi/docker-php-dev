@@ -14,21 +14,28 @@ $hostname = gethostname();
 $gamedb = new Pdo($cfg->getDBConfig());
 $logdb = new Pdo($cfg->getLogDBConfig());
 
+$response = array();
+
 // test to connect scribe server
 $scribe_config = $cfg->getScribedConfig();
 $logger = new Logger($scribe_config['host'], $scribe_config['port']);
 $logger->add('hello_log', array("hostname"=>$hostname));
 $logger->flush();
-print_r('hostname: ' . $hostname);
-
-// test to connect memcache server
-$mem_config = $cfg->getMemcachedConfig();
-$memc = new Memcache();
-$memc->connect($mem_config['host'], $mem_config['port']);
-print_r($memc->getStats());
+$response['hostname'] = $hostname;
 
 // test to connect redis server
 $redis_config = $cfg->getRedisConfig();
 $redis = new Redis();
 $redis->connect($redis_config['host'], $redis_config['port']);
-print_r($redis->ping());
+$response['redis-ping'] = $redis->ping();
+$redis->close();
+
+// test to connect memcache server
+$mem_config = $cfg->getMemcachedConfig();
+$memc = new Memcached();
+$memc->addServer($mem_config['host'], $mem_config['port']);
+$response['memcached-stats'] = $memc->getStats();
+
+header('Content-type: application/json');
+echo json_encode($response);
+

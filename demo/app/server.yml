@@ -13,7 +13,7 @@ logdb:
   pass: password
 
 redis:
-  host: redis
+  host: tasks.redis
   port: 6379
 
 scribed:
@@ -21,5 +21,5 @@ scribed:
   port: 1323
 
 memcached:
-  host: memcache
+  host: memcached
   port: 11211
