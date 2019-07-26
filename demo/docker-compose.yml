@@ -20,9 +20,9 @@ services:
 #    build:
 #      context: .
 #      dockerfile: ./Dockerfile
-    image: localhost:5000/myphp
-    volumes:
-      - ./app:/var/www/html
+    image: localhost:5000/myphp:1
+#    volumes:
+#      - ./app:/var/www/html
     links:
       - db
       - logdb

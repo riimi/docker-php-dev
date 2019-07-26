@@ -10,7 +10,11 @@ RUN pecl install redis && docker-php-ext-enable redis
 RUN pecl install yaml && docker-php-ext-enable yaml
 RUN pecl install memcached && docker-php-ext-enable memcached
 
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+COPY ./app /var/www/html
 WORKDIR /var/www/html
+RUN composer install
 
 EXPOSE 9000
 CMD ["php-fpm"]

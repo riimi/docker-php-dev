@@ -34,7 +34,8 @@ $redis->close();
 $mem_config = $cfg->getMemcachedConfig();
 $memc = new Memcached();
 $memc->addServer($mem_config['host'], $mem_config['port']);
-$response['memcached-stats'] = $memc->getStats();
+$stat = $memc->getStats();
+$response['memcached-uptime'] = $stat["{$mem_config['host']}:{$mem_config['port']}"]['uptime'];
 
 header('Content-type: application/json');
 echo json_encode($response);
